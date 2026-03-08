@@ -1,3 +1,4 @@
+<?php include 'config.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +31,8 @@
   	<!-- Google Font -->
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-    <!-- Paypal Express -->
-    <?php if(basename($_SERVER['PHP_SELF']) == 'cart_view.php'): ?>
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-    <?php endif; ?>
+    <!-- Razorpay Payment Gateway -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <!-- Google Recaptcha -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
 

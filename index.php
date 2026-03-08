@@ -1,4 +1,5 @@
 <?php include 'includes/session.php'; ?>
+<?php include 'includes/config.php'; ?>
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
@@ -83,6 +84,52 @@
 
 						$pdo->close();
 
+		       		?> 
+
+		       		<?php
+		       			$conn = $pdo->open();
+
+		       			try{
+		       				// Fetch all categories
+		       				$catstmt = $conn->prepare("SELECT * FROM category");
+		       				$catstmt->execute();
+		       				foreach($catstmt as $catrow){
+		       					$catid = $catrow['id'];
+		       					$catname = $catrow['name'];
+		       					echo "<h2>".$catname."</h2>";
+		       					
+		       					// Fetch products for this category, limit to 6
+		       					$prodstmt = $conn->prepare("SELECT * FROM products WHERE category_id = :catid LIMIT 6");
+		       					$prodstmt->execute(['catid' => $catid]);
+		       					$inc = 3;
+		       					foreach($prodstmt as $row){
+		       						$image = (!empty($row['photo'])) ? 'images/'.$row['photo'] : 'images/noimage.jpg';
+		       						$inc = ($inc == 3) ? 1 : $inc + 1;
+		       						if($inc == 1) echo "<div class='row'>";
+		       						echo "
+		       							<div class='col-sm-4'>
+		       								<div class='box box-solid'>
+			       								<div class='box-body prod-body'>
+			       									<img src='".$image."' width='100%' height='230px' class='thumbnail'>
+			       									<h5><a href='product.php?product=".$row['slug']."'>".$row['name']."</a></h5>
+			       								</div>
+			       								<div class='box-footer'>
+						       						<b>&#8377; ".number_format($row['price'], 2)."</b>
+			       								</div>
+		       								</div>
+		       							</div>
+		       						";
+		       						if($inc == 3) echo "</div>";
+		       					}
+		       					if($inc == 1) echo "<div class='col-sm-4'></div><div class='col-sm-4'></div></div>"; 
+									if($inc == 2) echo "<div class='col-sm-4'></div></div>";
+		       				}
+		       			}
+		       			catch(PDOException $e){
+		       				echo "There is some problem in connection: " . $e->getMessage();
+		       			}
+
+		       			$pdo->close();
 		       		?> 
 	        	</div>
 	        	<div class="col-sm-3">

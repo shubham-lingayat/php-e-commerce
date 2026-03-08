@@ -25,14 +25,14 @@ This is an e-Commerce Site Project with Secure Registration and Online Payment. 
   <li><strong>Manage Product List</strong></li>
 </ul>
 
-Visit [sourcecodester.com](https://www.sourcecodester.com/php/12287/e-commerce-site-using-php-pdo.html) for more detailed information about this Project.
+Visit [ShopEasy.com](https://www.ShopEasy.com/php/12287/e-commerce-site-using-php-pdo.html) for more detailed information about this Project.
 
 ### Website Info
 
 | Title | e-Commerce Site using PHP/PDO, PHPMailer, ReCaptcha, and PayPal with Source Code |
 |:---|:---|
-| Website | [www.sourcecodester.com](https://www.sourcecodester.com) |
-| Link | https://www.sourcecodester.com/php/12287/e-commerce-site-using-php-pdo.html |
+| Website | [www.ShopEasy.com](https://www.ShopEasy.com) |
+| Link | https://www.ShopEasy.com/php/12287/e-commerce-site-using-php-pdo.html |
 | Language | PHP |
-| Developer/Uploader | [nurhodelta_17](https://www.sourcecodester.com/users/nurhodelta2017) |
+| Developer/Uploader | [nurhodelta_17](https://www.ShopEasy.com/users/nurhodelta2017) |
 # php-e-commerce
